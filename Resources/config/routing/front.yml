@@ -1,0 +1,2 @@
+jb_simple_page_view:
+    path: /page/:slug

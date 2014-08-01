@@ -1,0 +1,15 @@
+jb_simple_page_index:
+    path: /page
+    methods: [GET]
+
+jb_simple_page_create:
+    path: /page/create
+    methods: [GET, POST]
+
+jb_simple_page_edit:
+    path: /page/:slug/edit
+    methods: [GET, POST]
+
+jb_simple_page_remove:
+    path: /page/:slug/remove
+    methods: [POST]

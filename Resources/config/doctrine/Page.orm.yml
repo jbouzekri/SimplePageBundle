@@ -1,0 +1,40 @@
+Jb\Bundle\SimplePageBundle\Model\Page:
+    type: mappedSuperclass
+    fields:
+        id:
+            type: integer
+            id: true
+        title:
+            type: string
+            length: 255
+        content:
+            type: text
+        metaTitle:
+            type: string
+            length: 255
+            column: meta_title
+            nullable: true
+        metaDescription:
+            type: string
+            length: 255
+            column: meta_description
+            nullable: true
+        slug:
+            type: string
+            length: 255
+            gedmo:
+                slug:
+                  separator: "-"
+                  style: default
+                  fields:
+                    - title
+        created:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: create
+        updated:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: update
