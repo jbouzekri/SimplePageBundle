@@ -19,6 +19,8 @@
                     <a href="{{ path('jb_simple_page_edit', {slug: page.slug}) }}" class="btn">{{ 'edit'|trans({}, 'jb_simple_page_admin') }}</a>
                 </td>
             </tr>
+        {% else %}
+            <tr><td colspan="3">{{ 'no_result'|trans({}, 'jb_simple_page_admin') }}</td></tr>
         {% endfor %}
     </table>
 {% endblock %}

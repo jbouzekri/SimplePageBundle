@@ -14,5 +14,8 @@ services:
         class: "%jb_simple_page.admin.controller.class%"
         arguments:
             - @jb_simple_page.page.provider.doctrine
+            - @doctrine
+            - @session
+            - @router
             - @templating
             - %jb_simple_page.admin.templates%

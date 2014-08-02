@@ -4,3 +4,4 @@ actions: Actions
 delete: Delete
 edit: Edit
 create: Create
+no_result: No result
