@@ -6,7 +6,8 @@
     "homepage": "https://github.com/jbouzekri/SimplePageBundle",
     "license": "MIT",
     "require": {
-        "gedmo/doctrine-extensions": "2.3.*"
+        "gedmo/doctrine-extensions": "2.3.*",
+        "symfony/doctrine-bridge": ">=2.3"
     },
     "autoload": {
         "psr-0": { "Jb\\Bundle\\SimplePageBundle": "" }

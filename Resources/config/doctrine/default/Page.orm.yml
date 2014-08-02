@@ -1,0 +1,6 @@
+Jb\Bundle\SimplePageBundle\Entity\Page:
+    type: entity
+    table: default_page
+    indexes:
+        slug_index:
+            columns: [ slug ]

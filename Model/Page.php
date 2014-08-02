@@ -7,7 +7,7 @@ namespace Jb\Bundle\SimplePageBundle\Model;
  *
  * @author jobou
  */
-class Page
+abstract class Page
 {
     /**
      * @var integer

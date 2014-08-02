@@ -7,9 +7,9 @@ jb_simple_page_create:
     methods: [GET, POST]
 
 jb_simple_page_edit:
-    path: /page/:slug/edit
+    path: /page/{slug}/edit
     methods: [GET, POST]
 
 jb_simple_page_remove:
-    path: /page/:slug/remove
+    path: /page/{slug}/remove
     methods: [POST]

@@ -1,2 +1,3 @@
 jb_simple_page_view:
-    path: /page/:slug
+    path: /page/{slug}
+    defaults: { _controller: jb_simple_page.front.controller:viewAction }

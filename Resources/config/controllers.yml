@@ -1,0 +1,14 @@
+parameters:
+    jb_simple_page.front.controller.class: Jb\Bundle\SimplePageBundle\Controller\FrontController
+    jb_simple_page.admin.controller.class: Jb\Bundle\SimplePageBundle\Controller\AdminController
+
+services:
+    jb_simple_page.front.controller:
+        class: "%jb_simple_page.front.controller.class%"
+        arguments:
+            - @jb_simple_page.page.provider.doctrine
+            - @templating
+            - %jb_simple_page.front.view_template%
+
+    jb_simple_page.admin.controller:
+        class: "%jb_simple_page.admin.controller.class%"

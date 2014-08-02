@@ -38,3 +38,6 @@ Jb\Bundle\SimplePageBundle\Model\Page:
             gedmo:
                 timestampable:
                     on: update
+    indexes:
+        slug_index:
+            columns: [ slug ]

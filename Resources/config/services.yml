@@ -1,0 +1,16 @@
+parameters:
+    jb_simple_page.page.repository.class: Doctrine\ORM\EntityRepository
+    jb_simple_page.page.provider.doctrine.class: Jb\Bundle\SimplePageBundle\Provider\DoctrinePageProvider
+
+services:
+    jb_simple_page.page.provider.doctrine:
+        class: "%jb_simple_page.page.provider.doctrine.class%"
+        arguments:
+            - @jb_simple_page.page.repository
+
+    jb_simple_page.page.repository:
+        class: "%jb_simple_page.page.repository.class%"
+        factory_service: doctrine.orm.default_entity_manager
+        factory_method: getRepository
+        arguments:
+            - %jb_simple_page.entity.class%
