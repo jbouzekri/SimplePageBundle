@@ -1,3 +1,5 @@
 jb_simple_page_view:
     path: /page/{slug}
     defaults: { _controller: jb_simple_page.front.controller:viewAction }
+    requirements:
+        slug: ((?!create).)*

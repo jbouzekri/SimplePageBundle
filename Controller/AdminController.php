@@ -9,6 +9,7 @@ use Symfony\Bridge\Doctrine\RegistryInterface;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\RouterInterface;
+use Symfony\Component\Form\Form;
 
 /**
  * AdminController
@@ -38,6 +39,11 @@ class AdminController
     protected $router;
 
     /**
+     * @var \Symfony\Component\Form\Form
+     */
+    protected $form;
+
+    /**
      * @var \Symfony\Bundle\FrameworkBundle\Templating\EngineInterface
      */
     protected $templating;
@@ -54,6 +60,7 @@ class AdminController
      * @param \Symfony\Bridge\Doctrine\RegistryInterface $doctrine
      * @param \Symfony\Component\HttpFoundation\Session\SessionInterface $session
      * @param \Symfony\Component\Routing\RouterInterface $router
+     * @param \Symfony\Component\Form\Form $form
      * @param \Symfony\Bundle\FrameworkBundle\Templating\EngineInterface $templating
      * @param array $templateArray
      */
@@ -62,6 +69,7 @@ class AdminController
         RegistryInterface $doctrine,
         SessionInterface $session,
         RouterInterface $router,
+        Form $form,
         EngineInterface $templating,
         $templateArray
     ) {
@@ -69,6 +77,7 @@ class AdminController
         $this->doctrine = $doctrine;
         $this->session = $session;
         $this->router = $router;
+        $this->form = $form;
         $this->templating = $templating;
         $this->templateArray = $templateArray;
     }
@@ -96,7 +105,7 @@ class AdminController
     public function createAction()
     {
         return $this->templating->renderResponse($this->templateArray['edit_template'], array(
-            'pages' => $pages,
+            'form' => $this->form->createView(),
             'templates' => $this->templateArray
         ));
     }

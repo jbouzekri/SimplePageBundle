@@ -39,6 +39,7 @@ class JbSimplePageExtension extends Extension
         $container->setParameter('jb_simple_page.entity.class', $config['entity']);
         $container->setParameter('jb_simple_page.front.view_template', $config['front']['view_template']);
         $container->setParameter('jb_simple_page.admin.templates', $config['admin']);
+        $container->setParameter('jb_simple_page.form.type', $config['form']);
 
         $providerDefinition = $container->getDefinition('jb_simple_page.page.provider.'.$config['provider']);
         $container->getDefinition('jb_simple_page.front.controller')->replaceArgument(0, $providerDefinition);

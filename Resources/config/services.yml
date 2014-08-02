@@ -2,6 +2,9 @@ parameters:
     jb_simple_page.page.repository.class: Doctrine\ORM\EntityRepository
     jb_simple_page.page.provider.doctrine.class: Jb\Bundle\SimplePageBundle\Provider\DoctrinePageProvider
     jb_simple_page.controller.listener.class: Jb\Bundle\SimplePageBundle\EventListener\BeforeAdminControllerListener
+    jb_simple_page.form.class: Jb\Bundle\SimplePageBundle\Form\Type\PageType
+    jb_simple_page.form.default.class: Jb\Bundle\SimplePageBundle\Form\Type\DefaultPageType
+    jb_simple_page.form.root.class: Jb\Bundle\SimplePageBundle\Form\Type\PageType
 
 services:
     jb_simple_page.page.provider.doctrine:
@@ -20,3 +23,20 @@ services:
         class: %jb_simple_page.controller.listener.class%
         tags:
             - { name: kernel.event_listener, event: kernel.controller, method: onKernelController }
+
+    jb_simple_page.form:
+        class: %jb_simple_page.form.class%
+        factory_service: form.factory
+        factory_method: create
+        arguments:
+            - %jb_simple_page.form.type%
+
+    jb_simple_page.form.default:
+        class: %jb_simple_page.form.default.class%
+        tags:
+            - { name: form.type, alias: jb_simple_page_default_form }
+
+    jb_simple_page.form.root:
+        class: %jb_simple_page.form.root.class%
+        tags:
+            - { name: form.type, alias: jb_simple_page_root }
