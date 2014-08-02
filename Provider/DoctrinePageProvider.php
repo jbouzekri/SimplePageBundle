@@ -33,4 +33,20 @@ class DoctrinePageProvider implements PageProviderInterface
     {
         return $this->repository->findOneBySlug($slug);
     }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function isAdminSupported()
+    {
+        return true;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function findAll()
+    {
+        return $this->repository->findAll();
+    }
 }

@@ -42,6 +42,20 @@ class Configuration implements ConfigurationInterface
                         ->end()
                     ->end()
                 ->end()
+                ->arrayNode('admin')
+                    ->addDefaultsIfNotSet()
+                    ->children()
+                        ->scalarNode('index_template')
+                            ->defaultValue('JbSimplePageBundle:Admin:index.html.twig')
+                        ->end()
+                        ->scalarNode('edit_template')
+                            ->defaultValue('JbSimplePageBundle:Admin:edit.html.twig')
+                        ->end()
+                        ->scalarNode('layout_template')
+                            ->defaultValue('::base.html.twig')
+                        ->end()
+                    ->end()
+                ->end()
             ->end();
 
         return $treeBuilder;

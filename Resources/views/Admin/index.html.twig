@@ -1,0 +1,24 @@
+{% extends templates.layout_template %}
+
+{% block body %}
+    <a href="{{ path('jb_simple_page_create') }}">{{ 'create'|trans({}, 'jb_simple_page_admin') }}</a>
+    <table>
+        <tr>
+            <td>{{ 'id'|trans({}, 'jb_simple_page_admin') }}</td>
+            <td>{{ 'title'|trans({}, 'jb_simple_page_admin') }}</td>
+            <td>{{ 'actions'|trans({}, 'jb_simple_page_admin') }}</td>
+        </tr>
+        {% for page in pages %}
+            <tr>
+                <td>{{ page.id }}</td>
+                <td>{{ page.title }}</td>
+                <td>
+                    <form action="{{ path('jb_simple_page_remove', {slug: page.slug}) }}" method="post">
+                        <input type="submit" class="btn" value="{{ 'delete'|trans({}, 'jb_simple_page_admin') }}" />
+                    </form>
+                    <a href="{{ path('jb_simple_page_edit', {slug: page.slug}) }}" class="btn">{{ 'edit'|trans({}, 'jb_simple_page_admin') }}</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

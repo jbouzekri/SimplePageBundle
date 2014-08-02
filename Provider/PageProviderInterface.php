@@ -15,4 +15,18 @@ interface PageProviderInterface
      * @param string $slug
      */
     public function findOneBySlug($slug);
+
+    /**
+     * Return true if this provider supports admin interface
+     *
+     * @return bool
+     */
+    public function isAdminSupported();
+
+    /**
+     * Find all pages
+     * 
+     * @return array
+     */
+    public function findAll();
 }

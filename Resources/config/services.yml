@@ -1,6 +1,7 @@
 parameters:
     jb_simple_page.page.repository.class: Doctrine\ORM\EntityRepository
     jb_simple_page.page.provider.doctrine.class: Jb\Bundle\SimplePageBundle\Provider\DoctrinePageProvider
+    jb_simple_page.controller.listener.class: Jb\Bundle\SimplePageBundle\EventListener\BeforeAdminControllerListener
 
 services:
     jb_simple_page.page.provider.doctrine:
@@ -14,3 +15,8 @@ services:
         factory_method: getRepository
         arguments:
             - %jb_simple_page.entity.class%
+
+    jb_simple_page.controller.listener:
+        class: %jb_simple_page.controller.listener.class%
+        tags:
+            - { name: kernel.event_listener, event: kernel.controller, method: onKernelController }

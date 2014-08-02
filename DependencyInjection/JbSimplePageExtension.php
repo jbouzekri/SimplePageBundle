@@ -38,9 +38,11 @@ class JbSimplePageExtension extends Extension
     {
         $container->setParameter('jb_simple_page.entity.class', $config['entity']);
         $container->setParameter('jb_simple_page.front.view_template', $config['front']['view_template']);
+        $container->setParameter('jb_simple_page.admin.templates', $config['admin']);
 
         $providerDefinition = $container->getDefinition('jb_simple_page.page.provider.'.$config['provider']);
         $container->getDefinition('jb_simple_page.front.controller')->replaceArgument(0, $providerDefinition);
+        $container->getDefinition('jb_simple_page.admin.controller')->replaceArgument(0, $providerDefinition);
 
         if (strpos($config['entity'], 'Jb\Bundle\SimplePageBundle') === 0) {
             $container->setParameter('jb_simple_page.entity.enable_default', true);
