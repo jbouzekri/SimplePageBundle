@@ -2,4 +2,5 @@
 
 {% block body %}
     {{ form(form) }}
+    <a href="{{ path('jb_simple_page_index') }}" class="btn">{{ 'back'|trans({}, 'jb_simple_page_admin') }}</a>
 {% endblock %}

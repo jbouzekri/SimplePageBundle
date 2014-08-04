@@ -14,6 +14,21 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 class DefaultPageType extends AbstractType
 {
     /**
+     * @var string
+     */
+    protected $entityType;
+
+    /**
+     * Constructor
+     *
+     * @param string $entityType
+     */
+    public function __construct($entityType)
+    {
+        $this->entityType = $entityType;
+    }
+
+    /**
      * {@inheritDoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -21,8 +36,20 @@ class DefaultPageType extends AbstractType
         parent::buildForm($builder, $options);
 
         $builder
-            ->add('fields', 'jb_simple_page_root')
+            ->add('fields', 'jb_simple_page_root', array(
+                'label' => false
+            ))
             ->add('submit', 'submit');
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    {
+        $resolver->setDefaults(array(
+            'data_class' => $this->entityType
+        ));
     }
 
     /**

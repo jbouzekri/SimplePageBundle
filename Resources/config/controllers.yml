@@ -17,6 +17,7 @@ services:
             - @doctrine
             - @session
             - @router
-            - @jb_simple_page.form
+            - @form.factory
+            - %jb_simple_page.form.type%
             - @templating
             - %jb_simple_page.admin.templates%

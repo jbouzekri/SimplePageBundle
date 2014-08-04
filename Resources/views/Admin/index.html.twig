@@ -1,12 +1,19 @@
 {% extends templates.layout_template %}
 
 {% block body %}
-    <a href="{{ path('jb_simple_page_create') }}">{{ 'create'|trans({}, 'jb_simple_page_admin') }}</a>
-    <table>
+    {% for flashMessage in app.session.flashbag.get('notice') %}
+        <div class="flash-notice">
+            {{ flashMessage }}
+        </div>
+    {% endfor %}
+
+    <a href="{{ path('jb_simple_page_create') }}" class="btn btn-primary">{{ 'create'|trans({}, 'jb_simple_page_admin') }}</a>
+
+    <table class="table">
         <tr>
-            <td>{{ 'id'|trans({}, 'jb_simple_page_admin') }}</td>
-            <td>{{ 'title'|trans({}, 'jb_simple_page_admin') }}</td>
-            <td>{{ 'actions'|trans({}, 'jb_simple_page_admin') }}</td>
+            <th>{{ 'id'|trans({}, 'jb_simple_page_admin') }}</th>
+            <th>{{ 'title'|trans({}, 'jb_simple_page_admin') }}</th>
+            <th>{{ 'actions'|trans({}, 'jb_simple_page_admin') }}</th>
         </tr>
         {% for page in pages %}
             <tr>
@@ -15,8 +22,8 @@
                 <td>
                     <form action="{{ path('jb_simple_page_remove', {slug: page.slug}) }}" method="post">
                         <input type="submit" class="btn" value="{{ 'delete'|trans({}, 'jb_simple_page_admin') }}" />
+                        <a href="{{ path('jb_simple_page_edit', {slug: page.slug}) }}" class="btn">{{ 'edit'|trans({}, 'jb_simple_page_admin') }}</a>
                     </form>
-                    <a href="{{ path('jb_simple_page_edit', {slug: page.slug}) }}" class="btn">{{ 'edit'|trans({}, 'jb_simple_page_admin') }}</a>
                 </td>
             </tr>
         {% else %}

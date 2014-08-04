@@ -1,9 +1,11 @@
 Jb\Bundle\SimplePageBundle\Model\Page:
     type: mappedSuperclass
-    fields:
+    id:
         id:
-            type: integer
-            id: true
+          type: integer
+          generator:
+            strategy: AUTO
+    fields:
         title:
             type: string
             length: 255

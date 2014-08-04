@@ -24,15 +24,10 @@ services:
         tags:
             - { name: kernel.event_listener, event: kernel.controller, method: onKernelController }
 
-    jb_simple_page.form:
-        class: %jb_simple_page.form.class%
-        factory_service: form.factory
-        factory_method: create
-        arguments:
-            - %jb_simple_page.form.type%
-
     jb_simple_page.form.default:
         class: %jb_simple_page.form.default.class%
+        arguments:
+            - %jb_simple_page.entity.class%
         tags:
             - { name: form.type, alias: jb_simple_page_default_form }
 

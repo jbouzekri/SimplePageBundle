@@ -112,7 +112,7 @@ abstract class Page
      *
      * @return string
      */
-    public function getMetatitle()
+    public function getMetaTitle()
     {
         return $this->metaTitle;
     }
@@ -124,7 +124,7 @@ abstract class Page
      *
      * @return \Jb\Bundle\SimplePageBundle\Model\Page
      */
-    public function setMetaTtile($metaTitle)
+    public function setMetaTitle($metaTitle)
     {
         $this->metaTitle = $metaTitle;
 

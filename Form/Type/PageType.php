@@ -22,7 +22,7 @@ class PageType extends AbstractType
 
         $builder
             ->add('title', 'text')
-            ->add('content', 'text')
+            ->add('content', 'textarea')
             ->add('metaTitle', 'text')
             ->add('metaDescription', 'text');
     }
