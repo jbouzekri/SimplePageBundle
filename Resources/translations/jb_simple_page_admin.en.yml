@@ -5,3 +5,8 @@ delete: Delete
 edit: Edit
 create: Create
 no_result: No result
+list: List of pages
+
+page:
+    create: Create a page
+    update: Update page "%title%"

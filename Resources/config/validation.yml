@@ -1,0 +1,14 @@
+Jb\Bundle\SimplePageBundle\Model\Page:
+    properties:
+        title:
+            - NotBlank: ~
+            - Length:
+                max: 255
+        content:
+            - NotBlank: ~
+        metaTitle:
+            - Length:
+                max: 255
+        metaDescription:
+            - Length:
+                max: 255

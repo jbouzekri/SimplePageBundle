@@ -1,6 +1,21 @@
 {% extends templates.layout_template %}
 
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset("bundles/jbsimplepage/ckeditor/ckeditor.js") }}"></script>
+    <script type="text/javascript">
+        CKEDITOR.replace( 'jb_simple_page_default_form_fields_content' );
+    </script>
+{% endblock %}
+
 {% block body %}
+    {% if form.vars.data and form.vars.data.id %}
+        <h1>{{ 'page.update'|trans({'%title%': form.vars.data.title}, 'jb_simple_page_admin') }}</h1>
+    {% else %}
+        <h1>{{ 'page.create'|trans({}, 'jb_simple_page_admin') }}</h1>
+    {% endif %}
+
     {{ form(form) }}
+
     <a href="{{ path('jb_simple_page_index') }}" class="btn">{{ 'back'|trans({}, 'jb_simple_page_admin') }}</a>
 {% endblock %}

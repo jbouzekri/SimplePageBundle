@@ -1,6 +1,8 @@
 {% extends templates.layout_template %}
 
 {% block body %}
+    <h1>{{ 'list'|trans({}, 'jb_simple_page_admin') }}</h1>
+
     {% for flashMessage in app.session.flashbag.get('notice') %}
         <div class="flash-notice">
             {{ flashMessage }}
