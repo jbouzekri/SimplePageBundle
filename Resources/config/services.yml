@@ -1,6 +1,7 @@
 parameters:
     jb_simple_page.page.repository.class: Doctrine\ORM\EntityRepository
     jb_simple_page.page.provider.doctrine.class: Jb\Bundle\SimplePageBundle\Provider\DoctrinePageProvider
+    jb_simple_page.page.provider.translator.class: Jb\Bundle\SimplePageBundle\Provider\TranslatorPageProvider
     jb_simple_page.controller.listener.class: Jb\Bundle\SimplePageBundle\EventListener\BeforeAdminControllerListener
     jb_simple_page.form.class: Jb\Bundle\SimplePageBundle\Form\Type\PageType
     jb_simple_page.form.default.class: Jb\Bundle\SimplePageBundle\Form\Type\DefaultPageType
@@ -18,6 +19,14 @@ services:
         factory_method: getRepository
         arguments:
             - %jb_simple_page.entity.class%
+
+    jb_simple_page.page.provider.translator:
+        class: "%jb_simple_page.page.provider.translator.class%"
+        arguments:
+            - @translator
+            - %jb_simple_page.entity.class%
+            - %jb_simple_page.translator.pages%
+            - %jb_simple_page.translator.translation_domain%
 
     jb_simple_page.controller.listener:
         class: %jb_simple_page.controller.listener.class%

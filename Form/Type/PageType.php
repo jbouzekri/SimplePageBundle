@@ -33,7 +33,8 @@ class PageType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'inherit_data' => true
+            'inherit_data' => true,
+            'translation_domain' => 'jb_simple_page_admin'
         ));
     }
 
