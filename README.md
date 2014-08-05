@@ -6,10 +6,10 @@ This bundle provides base classes to manage static page in your project and give
 Installation
 ------------
 
-Add `jbouzekri/simple-page-bundle` as a dependency in [composer.json](composer.json).
+Add `jbouzekri/simplepage-bundle` as a dependency in [composer.json](composer.json).
 
 ``` yml
-"jbouzekri/simple-page-bundle": "1.*"
+"jbouzekri/simplepage-bundle": "1.*"
 ```
 
 Enable the bundle in your AppKernel :
