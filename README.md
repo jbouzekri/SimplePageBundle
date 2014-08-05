@@ -6,7 +6,7 @@ This bundle provides base classes to manage static page in your project and give
 Installation
 ------------
 
-Add `jbouzekri/simple-page-bundle` as a dependency in [`composer.json`][composer.json].
+Add `jbouzekri/simple-page-bundle` as a dependency in [composer.json](composer.json).
 
 ``` yml
 "jbouzekri/simple-page-bundle": "1.*"
@@ -51,15 +51,15 @@ jb_simple_page:
         layout_template: "::base.html.twig"
 ```
 
-jb_simple_page.entity : the entity loaded
-form : the name of the form (defined as a service) to used in admin interface
-router.root_prefix : the route prefix used in the front and between the admin prefix and the slug in the admin
-router.admin_prefix : the route prefix used in the admin interface (placed before the root prefix)
-front.view_template : template to render page in front
-front.layout_template : layout template to extend in front
-admin.index_template : list page template in admin interface
-admin.edit_template : edit/create page template in admin interface
-admin.layout_template : layout template to extend in admin interface
+* jb_simple_page.entity : the entity loaded
+* form : the name of the form (defined as a service) to used in admin interface
+* router.root_prefix : the route prefix used in the front and between the admin prefix and the slug in the admin
+* router.admin_prefix : the route prefix used in the admin interface (placed before the root prefix)
+* front.view_template : template to render page in front
+* front.layout_template : layout template to extend in front
+* admin.index_template : list page template in admin interface
+* admin.edit_template : edit/create page template in admin interface
+* admin.layout_template : layout template to extend in admin interface
 
 Translator provider reference
 ---------------------------
@@ -79,11 +79,11 @@ jb_simple_page:
             ...
 ```
 
-router.root_prefix : the route prefix used in the front and between the admin prefix and the slug in the admin
-front.view_template : template to render page in front
-front.layout_template : layout template to extend in front
-translator.translation_domain : the translation domain to load page content
-translator.pages : list of the page availables.
+* router.root_prefix : the route prefix used in the front and between the admin prefix and the slug in the admin
+* front.view_template : template to render page in front
+* front.layout_template : layout template to extend in front
+* translator.translation_domain : the translation domain to load page content
+* translator.pages : list of the page availables.
 
 In your translation file (translation_domain.locale.yml for example), for each page defined in translator.pages, you can defined :
 
