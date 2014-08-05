@@ -1,7 +1,8 @@
 SimplePageBundle
 ================
 
-This bundle provides base classes to manage static page in your project and gives your users the means to edit and change them with an admin interface.
+This bundle provides base classes to manage static page in your project and gives your users the mean to edit and change them with an admin interface.
+It was developed because a lot people asked for this simple functions and I was tired to implement it again and again with little difference.
 
 Installation
 ------------
@@ -19,6 +20,13 @@ $bundles = array(
     ...
     new Jb\Bundle\SimplePageBundle\JbSimplePageBundle()
 );
+```
+
+And import the route in app/config/routing.yml :
+
+``` yml
+simple_page_route_imported:
+    resource: "@JbSimplePageBundle/Resources/config/routing.yml"
 ```
 
 *Important* : If you use the doctrine provider, the base page entity use the [doctrine extension of gedmo](https://packagist.org/packages/gedmo/doctrine-extensions).
