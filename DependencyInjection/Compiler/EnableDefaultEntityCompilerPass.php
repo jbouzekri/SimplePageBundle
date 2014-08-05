@@ -9,7 +9,7 @@ use Doctrine\Bundle\DoctrineBundle\DependencyInjection\Compiler\DoctrineOrmMappi
 /**
  * Description of EnableDefaultEntityCompilerPass
  *
- * @author jobou
+ * @author Jonathan Bouzekri <jonathan.bouzekri@gmail.com>
  */
 class EnableDefaultEntityCompilerPass implements CompilerPassInterface
 {

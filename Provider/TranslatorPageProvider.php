@@ -2,25 +2,17 @@
 
 namespace Jb\Bundle\SimplePageBundle\Provider;
 
-use Symfony\Component\Translation\TranslatorInterface;
-use Jb\Bundle\SimplePageBundle\Model\Page;
-
 /**
  * TranslatorPageProvider
  *
- * @author jobou
+ * @author Jonathan Bouzekri <jonathan.bouzekri@gmail.com>
  */
 class TranslatorPageProvider implements PageProviderInterface
 {
     /**
-     * @var \Symfony\Component\Translation\TranslatorInterface
+     * @var \Jb\Bundle\SimplePageBundle\Provider\TranslatorPageBuilderInterface
      */
-    protected $translator;
-
-    /**
-     * @var string
-     */
-    protected $entityClass;
+    protected $builder;
 
     /**
      * @var array
@@ -28,28 +20,17 @@ class TranslatorPageProvider implements PageProviderInterface
     protected $pages;
 
     /**
-     * @var string
-     */
-    protected $translationDomain;
-
-    /**
      * Constructor
      *
-     * @param \Symfony\Component\Translation\TranslatorInterface $translator
-     * @param string $entityClass
+     * @param \Jb\Bundle\SimplePageBundle\Provider\TranslatorPageBuilderInterface $builder
      * @param array $pages
-     * @param string $translationDomain
      */
     public function __construct(
-        TranslatorInterface $translator,
-        $entityClass,
-        $pages = array(),
-        $translationDomain = "jb_simple_page"
+        TranslatorPageBuilderInterface $builder,
+        $pages = array()
     ) {
-        $this->translator = $translator;
-        $this->entityClass = $entityClass;
+        $this->builder = $builder;
         $this->pages = $pages;
-        $this->translationDomain = $translationDomain;
     }
 
     /**
@@ -59,7 +40,7 @@ class TranslatorPageProvider implements PageProviderInterface
     {
         $results = array();
         foreach ($this->pages as $transKey) {
-            $results[] = $this->createPage($transKey);
+            $results[] = $this->builder->createPage($transKey);
         }
 
         return $results;
@@ -72,7 +53,7 @@ class TranslatorPageProvider implements PageProviderInterface
     {
         foreach ($this->pages as $page) {
             if ($page == $slug) {
-                return $this->createPage($slug);
+                return $this->builder->createPage($slug);
             }
         }
 
@@ -85,48 +66,5 @@ class TranslatorPageProvider implements PageProviderInterface
     public function isAdminSupported()
     {
         return false;
-    }
-
-    /**
-     * Builder for page entity
-     *
-     * @param string $slug
-     *
-     * @return \Jb\Bundle\SimplePageBundle\Model\Page
-     */
-    protected function createPage($slug)
-    {
-        $page = new $this->entityClass();
-        if (!$page instanceof Page) {
-            throw new Exception\PageException('Page entity must be of type Jb\Bundle\SimplePageBundle\Model\Page');
-        }
-
-        $page->setTitle($this->trans($slug.'.title'));
-        $page->setContent($this->trans($slug.'.content'));
-
-        $metaTitle =
-            ($this->trans($slug.'.meta_title') != $slug.'.meta_title') ? $this->trans($slug.'.meta_title') : null;
-        $page->setMetaTitle($metaTitle);
-
-        $metaDescription =
-            ($this->trans($slug.'.meta_description') != $slug.'.meta_description')
-            ? $this->trans($slug.'.meta_description') : null;
-        $page->setMetaDescription($metaDescription);
-
-        $page->setSlug($slug);
-
-        return $page;
-    }
-
-    /**
-     * Translate a key
-     *
-     * @param string $key
-     *
-     * @return string
-     */
-    protected function trans($key)
-    {
-        return $this->translator->trans($key, array(), $this->translationDomain);
     }
 }

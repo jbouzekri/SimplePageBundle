@@ -9,7 +9,7 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 /**
  * Description of PageType
  *
- * @author jobou
+ * @author Jonathan Bouzekri <jonathan.bouzekri@gmail.com>
  */
 class PageType extends AbstractType
 {

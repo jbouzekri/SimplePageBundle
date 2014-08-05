@@ -16,7 +16,7 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * AdminController
  *
- * @author jobou
+ * @author Jonathan Bouzekri <jonathan.bouzekri@gmail.com>
  */
 class AdminController
 {

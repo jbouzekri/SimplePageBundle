@@ -1,13 +1,13 @@
 {
     "name": "jbouzekri/simple-page-bundle",
     "type": "symfony-bundle",
-    "description": "A bridge for symfony with the phumbor client from 99designs",
+    "description": "Provides simple static page admin and display",
     "keywords": ["Bundle", "Twig", "Symfony", "CMS"],
     "homepage": "https://github.com/jbouzekri/SimplePageBundle",
     "license": "MIT",
     "require": {
         "gedmo/doctrine-extensions": ">=2.3",
-        "symfony/doctrine-bridge": ">=2.3"
+        "symfony/framework-bundle": ">=2.3"
     },
     "autoload": {
         "psr-0": { "Jb\\Bundle\\SimplePageBundle": "" }

@@ -8,7 +8,7 @@ services:
         arguments:
             - @jb_simple_page.page.provider.doctrine
             - @templating
-            - %jb_simple_page.front.view_template%
+            - %jb_simple_page.front.templates%
 
     jb_simple_page.admin.controller:
         class: "%jb_simple_page.admin.controller.class%"

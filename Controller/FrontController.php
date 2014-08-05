@@ -9,7 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 /**
  * FrontController
  *
- * @author jobou
+ * @author Jonathan Bouzekri <jonathan.bouzekri@gmail.com>
  */
 class FrontController
 {
@@ -24,25 +24,25 @@ class FrontController
     protected $templating;
 
     /**
-     * @var string
+     * @var array
      */
-    protected $viewTemplate;
+    protected $templateArray;
 
     /**
      * Constructor
      *
      * @param \Jb\Bundle\SimplePageBundle\Provider\PageProviderInterface $pageProvider
      * @param \Symfony\Bundle\FrameworkBundle\Templating\EngineInterface $templating
-     * @param string $viewTemplate
+     * @param array $templateArray
      */
     public function __construct(
         PageProviderInterface $pageProvider,
         EngineInterface $templating,
-        $viewTemplate
+        $templateArray
     ) {
         $this->pageProvider = $pageProvider;
         $this->templating = $templating;
-        $this->viewTemplate = $viewTemplate;
+        $this->templateArray = $templateArray;
     }
 
     /**
@@ -59,8 +59,9 @@ class FrontController
             throw new NotFoundHttpException('Page '.$slug.' not found');
         }
 
-        return $this->templating->renderResponse($this->viewTemplate, array(
-            'page' => $page
+        return $this->templating->renderResponse($this->templateArray['view_template'], array(
+            'page' => $page,
+            'templates' => $this->templateArray
         ));
     }
 }

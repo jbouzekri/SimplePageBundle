@@ -5,7 +5,7 @@ namespace Jb\Bundle\SimplePageBundle\Provider;
 /**
  * PageProviderInterface
  *
- * @author jobou
+ * @author Jonathan Bouzekri <jonathan.bouzekri@gmail.com>
  */
 interface PageProviderInterface
 {
@@ -25,7 +25,7 @@ interface PageProviderInterface
 
     /**
      * Find all pages
-     * 
+     *
      * @return array
      */
     public function findAll();

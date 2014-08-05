@@ -7,7 +7,7 @@ use Jb\Bundle\SimplePageBundle\Model\Page as BasePage;
 /**
  * Description of Page
  *
- * @author jobou
+ * @author Jonathan Bouzekri <jonathan.bouzekri@gmail.com>
  */
 class Page extends BasePage
 {

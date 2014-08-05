@@ -7,7 +7,7 @@ use Doctrine\Common\Persistence\ObjectRepository;
 /**
  * DoctrinePageProvider
  *
- * @author jobou
+ * @author Jonathan Bouzekri <jonathan.bouzekri@gmail.com>
  */
 class DoctrinePageProvider implements PageProviderInterface
 {

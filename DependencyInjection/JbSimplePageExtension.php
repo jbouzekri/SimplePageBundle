@@ -6,7 +6,6 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\Config\FileLocator;
-use Symfony\Component\DependencyInjection\Definition;
 
 /**
  * JbSimplePage extension
@@ -37,7 +36,7 @@ class JbSimplePageExtension extends Extension
     protected function loadConfiguration(ContainerBuilder $container, array $config)
     {
         $container->setParameter('jb_simple_page.entity.class', $config['entity']);
-        $container->setParameter('jb_simple_page.front.view_template', $config['front']['view_template']);
+        $container->setParameter('jb_simple_page.front.templates', $config['front']);
         $container->setParameter('jb_simple_page.admin.templates', $config['admin']);
         $container->setParameter('jb_simple_page.form.type', $config['form']);
         $container->setParameter('jb_simple_page.router.root_prefix', $config['router']['root_prefix']);

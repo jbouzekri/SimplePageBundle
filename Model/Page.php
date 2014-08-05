@@ -5,7 +5,7 @@ namespace Jb\Bundle\SimplePageBundle\Model;
 /**
  * Page
  *
- * @author jobou
+ * @author Jonathan Bouzekri <jonathan.bouzekri@gmail.com>
  */
 abstract class Page
 {

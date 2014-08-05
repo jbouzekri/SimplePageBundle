@@ -8,7 +8,7 @@ use Jb\Bundle\SimplePageBundle\Controller\AdminController;
 /**
  * BeforeAdminControllerListener
  *
- * @author jobou
+ * @author Jonathan Bouzekri <jonathan.bouzekri@gmail.com>
  */
 class BeforeAdminControllerListener
 {
