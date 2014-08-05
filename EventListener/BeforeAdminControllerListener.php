@@ -22,10 +22,10 @@ class BeforeAdminControllerListener
     public function onKernelController(FilterControllerEvent $event)
     {
         $controller = $event->getController();
-        if (!$controller instanceof AdminController) {
+        if (!$controller[0] instanceof AdminController) {
             return;
         }
 
-        $controller->supportAdminInterface();
+        $controller[0]->supportAdminInterface();
     }
 }

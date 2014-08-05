@@ -4,14 +4,10 @@
     <h1>{{ 'list'|trans({}, 'jb_simple_page_admin') }}</h1>
 
     {% for flashMessage in app.session.flashbag.get('notice') %}
-        <div class="flash-notice">
-            {{ flashMessage }}
-        </div>
+        <div class="alert alert-success">{{ flashMessage }}</div>
     {% endfor %}
 
-    <a href="{{ path('jb_simple_page_create') }}" class="btn btn-primary">{{ 'create'|trans({}, 'jb_simple_page_admin') }}</a>
-
-    <table class="table">
+    <table class="table table-striped table-condensed">
         <tr>
             <th>{{ 'id'|trans({}, 'jb_simple_page_admin') }}</th>
             <th>{{ 'title'|trans({}, 'jb_simple_page_admin') }}</th>
@@ -23,8 +19,8 @@
                 <td>{{ page.title }}</td>
                 <td>
                     <form action="{{ path('jb_simple_page_remove', {slug: page.slug}) }}" method="post">
-                        <input type="submit" class="btn" value="{{ 'delete'|trans({}, 'jb_simple_page_admin') }}" />
-                        <a href="{{ path('jb_simple_page_edit', {slug: page.slug}) }}" class="btn">{{ 'edit'|trans({}, 'jb_simple_page_admin') }}</a>
+                        <a href="{{ path('jb_simple_page_edit', {slug: page.slug}) }}" class="btn btn-primary">{{ 'edit'|trans({}, 'jb_simple_page_admin') }}</a>
+                        <input type="submit" class="btn btn-default" value="{{ 'delete'|trans({}, 'jb_simple_page_admin') }}" />
                     </form>
                 </td>
             </tr>
@@ -32,4 +28,6 @@
             <tr><td colspan="3">{{ 'no_result'|trans({}, 'jb_simple_page_admin') }}</td></tr>
         {% endfor %}
     </table>
+
+    <a href="{{ path('jb_simple_page_create') }}" class="btn btn-primary">{{ 'create'|trans({}, 'jb_simple_page_admin') }}</a>
 {% endblock %}

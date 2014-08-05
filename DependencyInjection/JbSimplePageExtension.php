@@ -40,6 +40,8 @@ class JbSimplePageExtension extends Extension
         $container->setParameter('jb_simple_page.front.view_template', $config['front']['view_template']);
         $container->setParameter('jb_simple_page.admin.templates', $config['admin']);
         $container->setParameter('jb_simple_page.form.type', $config['form']);
+        $container->setParameter('jb_simple_page.router.root_prefix', $config['router']['root_prefix']);
+        $container->setParameter('jb_simple_page.router.admin_prefix', $config['router']['admin_prefix']);
         $container->setParameter(
             'jb_simple_page.translator.translation_domain',
             $config['translator']['translation_domain']

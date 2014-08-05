@@ -1,19 +1,19 @@
 jb_simple_page_index:
-    path: /page
+    path: /%jb_simple_page.router.root_prefix%
     defaults: { _controller: jb_simple_page.admin.controller:indexAction }
     methods: [GET]
 
 jb_simple_page_create:
-    path: /page/create
+    path: /%jb_simple_page.router.root_prefix%/create
     defaults: { _controller: jb_simple_page.admin.controller:createAction }
     methods: [GET, POST]
 
 jb_simple_page_edit:
-    path: /page/{slug}/edit
+    path: /%jb_simple_page.router.root_prefix%/{slug}/edit
     defaults: { _controller: jb_simple_page.admin.controller:editAction }
     methods: [GET, POST]
 
 jb_simple_page_remove:
-    path: /page/{slug}/remove
+    path: /%jb_simple_page.router.root_prefix%/{slug}/remove
     defaults: { _controller: jb_simple_page.admin.controller:removeAction }
     methods: [POST]
