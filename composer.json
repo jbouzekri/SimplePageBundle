@@ -1,5 +1,5 @@
 {
-    "name": "jbouzekri/simplepage-bundle",
+    "name": "jbouzekri/simple-page-bundle",
     "type": "symfony-bundle",
     "description": "Provides simple static page admin and display",
     "keywords": ["Bundle", "Twig", "Symfony", "CMS"],
