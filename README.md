@@ -7,10 +7,10 @@ It was developed because a lot people asked for this simple functions and I was 
 Installation
 ------------
 
-Add `jbouzekri/simplepage-bundle` as a dependency in [composer.json](composer.json).
+Add `jbouzekri/simple-page-bundle` as a dependency in [composer.json](composer.json).
 
 ``` yml
-"jbouzekri/simplepage-bundle": "1.*"
+"jbouzekri/simple-page-bundle": "1.*"
 ```
 
 Enable the bundle in your AppKernel :
